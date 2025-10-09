@@ -1,42 +1,178 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* COLORS */
+  --color-primary-accent: #b45309;
+  --color-secondary-accent: #2563eb;
+  --color-background: #fdfbf8;
+  --color-text: #1f2937;
+  --color-text-muted: #6b7280;
+  --color-border: #e5e7eb;
+}
+/* Typography */
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+h1 {
+  font-size: 48px;
+  line-height: 120%;
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 130%;
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 130%;
+}
+
+.p1-r {
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
+}
+
+.p2-r {
+  font-size: 14px;
+  line-height: 140%;
+  font-weight: 400;
+}
+
+.p2-b {
+  font-size: 14px;
+  line-height: 140%;
+  font-weight: 600;
+}
+
+.p-small {
+  font-size: 12px;
+  line-height: 140%;
+  font-weight: 400;
+}
+
+.p-big {
+  font-size: 20px;
+  line-height: 150%;
+  font-weight: 400;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: var(--color-text);
+}
+
+/* ---------------------------------------------------------- */
+
+/* Button reset */
+button {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ACTUAL STYLING */
+
+.root {
+  display: flex;
+  display: flex;
+  width: 90rem;
+  padding-bottom: 2.1875rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  background: var(--color-background);
+}
+
+/* header */
+header {
+  display: flex;
+  height: 4.5rem;
+  padding: 0.625rem 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.08);
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  color: var(--color-primary-accent);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.category-menu {
+  display: flex;
+  padding: 0.25rem 0.9375rem;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 1.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.category-pill {
+  color: var(--color-text);
 }
 
-.card {
-  padding: 2em;
+.fav-icon {
+  width: 1.5rem;
+  height: 1.375rem;
+  flex-shrink: 0;
+  aspect-ratio: 12/11;
+  fill: var(--color-text);
 }
 
-.read-the-docs {
-  color: #888;
+/* Hero/Title+Search */
+
+.section-hero {
+  display: flex;
+  padding: 5rem 1.5rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  align-self: stretch;
+}
+
+.hero-title-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  align-self: stretch;
+}
+
+.hero-sub-title {
+  color: var(--color-text-muted);
+  font-family: Inter;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.searchbar {
+  display: flex;
+  width: 37.5rem;
+  height: 3.5rem;
+  padding: 0.625rem 0 0.625rem 1rem;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.05);
 }

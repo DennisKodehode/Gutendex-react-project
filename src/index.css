@@ -1,4 +1,12 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
+  /* COLORS */
   --color-primary-accent: #b45309;
   --color-secondary-accent: #2563eb;
   --color-background: #fdfbf8;
@@ -6,7 +14,7 @@
   --color-text-muted: #6b7280;
   --color-border: #e5e7eb;
 }
-
+/* Typography */
 h1,
 h2,
 h3 {
@@ -65,4 +73,15 @@ body {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+}
+
+/* ---------------------------------------------------------- */
+
+/* Button reset */
+button {
+  all: unset; /* removes all browser default styles safely */
+  cursor: pointer; /* ensures it still acts like a button */
+  display: inline-flex; /* useful for alignment and spacing */
+  align-items: center;
+  justify-content: center;
 }
