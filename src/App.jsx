@@ -8,7 +8,7 @@ function App() {
     <>
       <Header />
       <SectionHero />
-      <SectionBookGrid />
+      <SectionBookGrid data={books} />
     </>
   );
 }

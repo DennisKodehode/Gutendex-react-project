@@ -1,4 +1,4 @@
-import favIcon from "../assets/Favorite.png";
+import favIcon from "../assets/Favorite.svg";
 
 export const Header = () => {
   return (
