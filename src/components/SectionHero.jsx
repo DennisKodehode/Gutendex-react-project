@@ -1,4 +1,4 @@
-export const SectionHero = () => {
+export const SectionHero = ({ query, setQuery }) => {
   return (
     <section className="section-hero">
       <div className="hero-title-wrapper">
@@ -7,13 +7,24 @@ export const SectionHero = () => {
           Search by title or choose a category to begin.
         </p>
       </div>
-      <input
-        className="searchbar"
-        type="text"
-        id="search"
+      <form
         name="search"
-        placeholder="Search by title or author…"
-      />
+        id="search"
+        onSubmit={(e) => {
+          e.preventDefault();
+          const fd = new FormData(e.currentTarget);
+          setQuery((fd.get("query") || "").toString());
+        }}
+      >
+        <input
+          name="query"
+          defaultValue={query}
+          className="searchbar"
+          type="text"
+          id="search"
+          placeholder="Search by title, author or category…"
+        />
+      </form>
     </section>
   );
 };

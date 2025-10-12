@@ -1,4 +1,4 @@
-export const PageControls = () => {
+export const PageControls = ({ page, setPage }) => {
   return (
     <div className="page-control-wrapper">
       <button>prev</button>
