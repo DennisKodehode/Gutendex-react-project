@@ -232,3 +232,17 @@ header {
   border-top: 1px solid #d1d5db;
   border-bottom: 1px solid #d1d5db;
 }
+
+.card-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-image {
+  height: 432px;
+  aspect-ratio: 2/3;
+  border-radius: 8px;
+}
