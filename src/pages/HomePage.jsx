@@ -82,8 +82,12 @@ export const HomePage = () => {
         disabled={status === "loading"}
       />
       <SectionHero query={query} setQuery={setQuery} />
-      {status === "loading" && <div className="grid-skeleton">Loading…</div>}
-      {status === "error" && <p role="alert">Error: {error}</p>}
+      {status === "loading" && (
+        <div className="grid-skeleton">
+          <span class="loader"></span>
+        </div>
+      )}
+      {status === "error" && <p>Error: {error}</p>}
       {status === "ready" && (
         <SectionBookGrid page={page} setPage={setPage} items={items} />
       )}

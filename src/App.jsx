@@ -1,8 +1,8 @@
 import "./App.css";
-import { HomePage } from "./pages/homepage";
 import { FavoritePage } from "./pages/FavoritePage";
 import { DetailsPage } from "./pages/DetailsPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HomePage } from "./pages/HomePage";
 
 function App() {
   return (

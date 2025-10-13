@@ -1,3 +1,11 @@
+import { Header } from "../components/Header";
+import { SectionDetails } from "../components/SectionDetails";
+
 export const DetailsPage = () => {
-  return <p>Book detail coming soon...</p>;
+  return (
+    <>
+      <Header />
+      <SectionDetails />
+    </>
+  );
 };

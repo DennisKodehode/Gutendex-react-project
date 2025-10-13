@@ -195,6 +195,55 @@ header {
   padding-bottom: 2.5rem;
 }
 
+.grid-skeleton {
+  display: flex;
+  justify-content: center;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite;
+}
+
+.loader::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 5px solid var(--color-primary-accent);
+  animation: prixClipFix 2s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+  }
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+  }
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+  }
+  75% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
+}
+
 /* book card */
 
 .book-card {
@@ -237,6 +286,7 @@ header {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -245,4 +295,130 @@ header {
   height: 432px;
   aspect-ratio: 2/3;
   border-radius: 8px;
+}
+
+/* DETAILS PAGE */
+
+.section-details {
+  display: flex;
+  padding: 3.5rem 0.625rem 7.5rem 0.625rem;
+  align-items: flex-start;
+  gap: 4rem;
+  align-self: stretch;
+}
+
+.details-image-wrapper {
+  display: flex;
+  width: 40.8125rem;
+  padding-top: 3.375rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.details-right-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex: 1 0 0;
+}
+
+.back-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.back-link-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.back-link {
+  color: var(--color-secondary-accent);
+}
+
+.title-author-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.details-author {
+  color: var(--color-text-muted);
+}
+
+.details-meta-data {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.details-language {
+  color: var(--color-text-muted);
+}
+
+.details-downloads {
+  color: #9ca3af;
+}
+
+.details-summary {
+  width: 38.125rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 14;
+  line-clamp: 14;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.category-pills-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+}
+
+.details-category-pill {
+  display: flex;
+  padding: 0.25rem 0.625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-primary-accent);
+}
+
+.cta-secondary-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.cta {
+  display: flex;
+  width: 10rem;
+  height: 2.75rem;
+  padding: 0.3125rem 0.625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.5rem;
+  background: var(--color-primary-accent);
+  color: var(--color-background);
+}
+
+.secondary-button {
+  display: flex;
+  width: 10rem;
+  height: 2.75rem;
+  padding: 0.3125rem 0.625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-border);
 }
