@@ -23,7 +23,7 @@ export const useBooks = ({ query, page, category }) => {
 
 export const useBook = (id) => {
   const queryClient = useQueryClient();
-
+  // checks cache to see if we already have the book requested and returns it if we do
   const initialData = () => {
     const pages = queryClient.getQueriesData({ querykey: ["books"] });
     for (const [, data] of pages) {
