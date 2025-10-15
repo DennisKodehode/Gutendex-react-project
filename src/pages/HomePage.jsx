@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 import { getBooks } from "../api/gutendex.js";
+import { useBooks } from "../hooks/apiHooks.js";
 
 export const HomePage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -12,15 +13,6 @@ export const HomePage = () => {
   const query = searchParams.get("query") ?? "";
   const page = Number(searchParams.get("page") ?? "1");
   const category = searchParams.get("category") ?? "";
-
-  const [status, setStatus] = useState("idle"); // states: idle loading ready error
-  const [error, setError] = useState(null);
-  const [data, setData] = useState({
-    items: [],
-    total: 0,
-    next: null,
-    prev: null,
-  });
 
   // helpers to write URL params
   const setQuery = (nextQuery) => {
@@ -45,50 +37,24 @@ export const HomePage = () => {
     setSearchParams(next);
   };
 
-  // calling the API when query/page/category changes
-  useEffect(() => {
-    const controller = new AbortController();
-    setStatus("loading");
-    setError(null);
-    getBooks(
-      {
-        search: query || undefined,
-        page: page > 1 ? page : undefined,
-        topic: category || undefined,
-      },
-      controller
-    )
-      .then((responseData) => {
-        setData(responseData);
-        setStatus("ready");
-      })
-
-      .catch((err) => {
-        if (axios.isCancel?.(err) || err.name === "CanceledError") return;
-        setError(err.message || "Something went wrong");
-        setStatus("error");
-      });
-
-    return () => controller.abort();
-  }, [query, page, category]); //dependency array
-
-  const items = data.items;
+  const { data, isPending, isError, error } = useBooks({
+    query,
+    page,
+    category,
+  });
+  const items = data?.items ?? [];
 
   return (
     <>
-      <Header
-        category={category}
-        setCategory={setCategory}
-        disabled={status === "loading"}
-      />
+      <Header category={category} setCategory={setCategory} />
       <SectionHero query={query} setQuery={setQuery} />
-      {status === "loading" && (
+      {isPending && (
         <div className="grid-skeleton">
           <span class="loader"></span>
         </div>
       )}
-      {status === "error" && <p>Error: {error}</p>}
-      {status === "ready" && (
+      {isError && <p>Error: {error?.message} || "Something went wrong"</p>}
+      {!isPending && !isError && (
         <SectionBookGrid page={page} setPage={setPage} items={items} />
       )}
     </>
