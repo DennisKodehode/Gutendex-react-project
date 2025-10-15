@@ -14,6 +14,12 @@
   --color-text-muted: #6b7280;
   --color-border: #e5e7eb;
 }
+
+a {
+  all: unset;
+  cursor: pointer;
+}
+
 /* Typography */
 h1,
 h2,
@@ -112,6 +118,7 @@ header {
 
 .logo {
   color: var(--color-primary-accent);
+  cursor: pointer;
 }
 
 .category-menu {
@@ -258,6 +265,7 @@ header {
   border: 1px solid var(--Border, #e5e7eb);
   background: #fff;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
+  cursor: pointer;
 }
 
 .favicon-wrapper {
@@ -280,6 +288,10 @@ header {
   gap: 0.625rem;
   border-top: 1px solid #d1d5db;
   border-bottom: 1px solid #d1d5db;
+}
+
+.card-title-wrapper {
+  height: 52px;
 }
 
 .card-title {
@@ -339,6 +351,7 @@ header {
 
 .back-link {
   color: var(--color-secondary-accent);
+  cursor: pointer;
 }
 
 .title-author-wrapper {

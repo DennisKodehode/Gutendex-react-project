@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import detailsBookImg from "../assets/Book-image-details.png";
 
 export const SectionDetails = () => {
@@ -9,7 +10,9 @@ export const SectionDetails = () => {
       <div className="details-right-wrapper">
         <div className="back-title">
           <div className="back-link-wrapper">
-            <p className="p2-r back-link">← Back to results</p>
+            <a href="/" className="p2-r back-link">
+              ← Back to results
+            </a>
           </div>
           <div className="title-author-wrapper">
             <h1>Pride and Prejudice</h1>

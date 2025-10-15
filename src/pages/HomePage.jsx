@@ -72,7 +72,7 @@ export const HomePage = () => {
     return () => controller.abort();
   }, [query, page, category]); //dependency array
 
-  const items = data.items.slice(0, 12);
+  const items = data.items;
 
   return (
     <>

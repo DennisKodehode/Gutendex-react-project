@@ -1,3 +1,9 @@
+import { Header } from "../components/Header";
 export const FavoritePage = () => {
-  return <p>Favorites coming soon...</p>;
+  return (
+    <>
+      <Header />
+      <p>Favorites coming soon...</p>
+    </>
+  );
 };
