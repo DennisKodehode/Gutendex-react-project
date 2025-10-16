@@ -1,5 +1,7 @@
-import favIcon from "../assets/Favorite.svg";
+import fav from "../assets/fav.svg";
+import favFilled from "../assets/fav-filled.svg";
 import { Link } from "react-router-dom";
+import { useFavorites } from "../hooks/useFavorites";
 
 export const Card = ({
   data: {
@@ -10,12 +12,21 @@ export const Card = ({
     download_count: downloads,
   },
 }) => {
+  const { isFavorite, toggleFavorite } = useFavorites();
+
   return (
     <div className="book-card">
       <div className="favicon-wrapper">
-        <img src={favIcon} alt="heart icon" />
+        <img
+          src={isFavorite(id) ? favFilled : fav}
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleFavorite(id);
+          }}
+          alt="heart icon"
+        />
       </div>
-      <Link to={`/book/:${id}`}>
+      <Link to={`/book/${id}`}>
         <img src={image} alt="book cover image" className="card-image" />
         <div className="card-title-wrapper">
           <h3 className="card-title"> {title} </h3>

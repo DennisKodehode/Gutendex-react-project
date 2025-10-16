@@ -1,7 +1,45 @@
 import favIcon from "../assets/Favorite.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 
-export const Header = () => {
+const categories = [
+  "All",
+  "War",
+  "Philosophy",
+  "Tragedy",
+  "Adventure",
+  "Justice",
+  "Power",
+  "Society",
+  "Morality",
+  "Fantasy",
+  "Romance",
+  "Thriller",
+  "Mystery",
+  "Fiction",
+];
+
+export const Header = ({ activeCategory = "", onPickCategory }) => {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const urlCategory = searchParams.get("category") || "";
+
+  const handlePickCategory = (value) => {
+    // If Home passed a handler, use it (keeps existing Home behavior intact)
+    if (typeof onPickCategory === "function") {
+      onPickCategory(value);
+      return;
+    }
+
+    // Otherwise, we're on Details/Favorites: navigate to Home with the category
+    const params = new URLSearchParams();
+    params.set("page", "1");
+    if (value) {
+      // Only include category when it's not "All"
+      params.set("category", value);
+    }
+    navigate({ pathname: "/", search: params.toString() });
+  };
+
   return (
     <header>
       <Link to="/">
@@ -9,21 +47,21 @@ export const Header = () => {
       </Link>
 
       <nav className="category-menu">
-        <button className="category-pill p2-b">All</button>
-        <button className="category-pill p2-b">War</button>
-        <button className="category-pill p2-b">Philosophy</button>
-        <button className="category-pill p2-b">Tragedy</button>
-        <button className="category-pill p2-b">Adventure</button>
-        <button className="category-pill p2-b">Justice</button>
-        <button className="category-pill p2-b">Power</button>
-        <button className="category-pill p2-b">Society</button>
-        <button className="category-pill p2-b">Morality</button>
-        <button className="category-pill p2-b">Fantasy</button>
-        <button className="category-pill p2-b">Romance</button>
-        <button className="category-pill p2-b">Thriller</button>
-        <button className="category-pill p2-b">Mystery</button>
-        <button className="category-pill p2-b">Fiction</button>
+        {categories.map((category) => {
+          const value = category === "All" ? "" : category;
+          const active = value === ((activeCategory ?? urlCategory) || "");
+          return (
+            <button
+              key={category}
+              className={`category-pill p2-b ${active ? "is-active" : ""}`}
+              onClick={() => handlePickCategory(value)}
+            >
+              {category}
+            </button>
+          );
+        })}
       </nav>
+
       <Link to="/favorites">
         <img src={favIcon} alt="heart icon" className="fav-icon" />
       </Link>

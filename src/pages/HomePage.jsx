@@ -44,18 +44,30 @@ export const HomePage = () => {
   });
   const items = data?.items ?? [];
 
+  const makePageHref = (p) => {
+    const next = new URLSearchParams(searchParams);
+    next.set("page", String(p));
+    return `/?${next.toString()}`;
+  };
+
   return (
     <>
-      <Header category={category} setCategory={setCategory} />
+      <Header activeCategory={category} onPickCategory={setCategory} />
       <SectionHero query={query} setQuery={setQuery} />
       {isPending && (
         <div className="grid-skeleton">
-          <span class="loader"></span>
+          <span className="loader"></span>
         </div>
       )}
       {isError && <p>Error: {error?.message} || "Something went wrong"</p>}
       {!isPending && !isError && (
-        <SectionBookGrid page={page} setPage={setPage} items={items} />
+        <SectionBookGrid
+          page={page}
+          setPage={setPage}
+          items={items}
+          total={data?.total ?? 0}
+          makePageHref={makePageHref}
+        />
       )}
     </>
   );
