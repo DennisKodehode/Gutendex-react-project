@@ -22,7 +22,7 @@ export const SectionHero = ({ query, setQuery }) => {
           className="searchbar"
           type="text"
           id="search"
-          placeholder="Search by title, author or category…"
+          placeholder="Search by title, author..."
         />
       </form>
     </section>
