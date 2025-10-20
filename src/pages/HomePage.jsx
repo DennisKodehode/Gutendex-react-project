@@ -1,10 +1,7 @@
 import { Header } from "../components/Header.jsx";
 import { SectionHero } from "../components/SectionHero.jsx";
 import { SectionBookGrid } from "../components/SectionBookGrid.jsx";
-import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import axios from "axios";
-import { getBooks } from "../api/gutendex.js";
 import { useBooks } from "../hooks/apiHooks.js";
 
 export const HomePage = () => {

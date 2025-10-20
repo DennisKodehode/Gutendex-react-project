@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import detailsBookImg from "../assets/Book-image-details.png";
 import { useFavorites } from "../hooks/useFavorites";
 
 const pickReadingUrl = (formats = {}) => {
@@ -53,8 +52,8 @@ export const SectionDetails = ({ book }) => {
       <div className="details-right-wrapper">
         <div className="back-title">
           <div className="back-link-wrapper">
-            <Link to="/" className="p2-r back-link">
-              ← Back to home
+            <Link to="#/">
+              <p className="p2-r back-link">← Back to home</p>
             </Link>
           </div>
           <div className="title-author-wrapper">
