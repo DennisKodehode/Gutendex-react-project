@@ -53,9 +53,9 @@ export const SectionDetails = ({ book }) => {
       <div className="details-right-wrapper">
         <div className="back-title">
           <div className="back-link-wrapper">
-            <a href="/" className="p2-r back-link">
+            <Link to="/" className="p2-r back-link">
               ← Back to home
-            </a>
+            </Link>
           </div>
           <div className="title-author-wrapper">
             <h1>{title}</h1>

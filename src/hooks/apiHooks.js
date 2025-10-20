@@ -3,7 +3,7 @@ import { getBooks, getBookById } from "../api/gutendex";
 
 export const useBooks = ({ query, page, category }) => {
   return useQuery({
-    // this is how TanStack Query tells different API calls apart.
+    // how TanStack Query tells different API calls apart.
     queryKey: ["books", { query, page, category }],
     queryFn: ({ signal, queryKey }) => {
       // extracts the object from the key
